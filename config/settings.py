@@ -11,6 +11,7 @@ ALLOWED_HOSTS = ["*"]
 
 
 INSTALLED_APPS = [
+    'unfold',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -21,8 +22,11 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'users',
+    'dtm',
 ]
 
 MIDDLEWARE = [
@@ -102,3 +106,5 @@ MEDIA_ROOT = BASE_DIR / 'media'
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
 CSRF_TRUSTED_ORIGINS = ["https://iqtidor-academy.uz/", "http://localhost:8000"]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"

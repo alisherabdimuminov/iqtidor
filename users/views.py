@@ -5,10 +5,6 @@ from rest_framework.authtoken.models import Token
 
 from .models import (
     User,
-    Subject,
-)
-from .serializers import (
-    SubjectSerializer,
 )
 
 
@@ -33,6 +29,13 @@ def login(request: HttpRequest):
             "status": "error",
             "code": "400",
             "data": "Noto'g'ri parol",
+        })
+    
+    if not user.is_active:
+        return Response({
+            "status": "error",
+            "code": "400",
+            "data": "Foydalanuvchi faol emas",
         })
     
     tokens = Token.objects.filter(user=user)
@@ -96,17 +99,4 @@ def signup(request: HttpRequest):
         "status": "success",
         "code": "200",
         "data": ""
-    })
-
-
-@decorators.api_view(http_method_names=["GET"])
-def get_subjects(request: HttpRequest):
-    subjects_obj = Subject.objects.all()
-    subjects = SubjectSerializer(subjects_obj, many=True)
-    return Response({
-        "status": "success",
-        "code": "200",
-        "data": {
-            "subjects": subjects.data,
-        }
     })
