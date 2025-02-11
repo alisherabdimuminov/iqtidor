@@ -24,9 +24,11 @@ INSTALLED_APPS = [
     'corsheaders',
     'ckeditor',
     'ckeditor_uploader',
+    'nested_admin',
 
     'users',
     'dtm',
+    'cefr',
 ]
 
 MIDDLEWARE = [

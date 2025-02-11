@@ -63,4 +63,4 @@ class DTMSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = DTM
-        fields = ("name", "duration", "is_participant", "block_1", "block_2", "block_3", "block_4", "block_5", "count_participants")
+        fields = ("id", "name", "duration", "price", "is_participant", "block_1", "block_2", "block_3", "block_4", "block_5", "count_participants")

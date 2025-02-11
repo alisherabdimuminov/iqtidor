@@ -70,6 +70,7 @@ class DTM(models.Model):
     block_5 = models.ForeignKey("Block", on_delete=models.CASCADE, related_name="dtm_block_5", verbose_name="Fan blok 5")
     participants = models.ManyToManyField(User, related_name="dtm_participants", blank=True, verbose_name="Qatnashchilar")
     created = models.DateTimeField(auto_now_add=True, verbose_name="Yaratilgan sana")
+    price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name="Narxi", default=0)
 
     def count_participants(self):
         return self.participants.count()

@@ -14,6 +14,7 @@ class User(AbstractUser):
     rural = models.CharField(max_length=1000, verbose_name="Qishloq")
     school = models.CharField(max_length=1000, verbose_name="Maktab nomi")
     image = models.ImageField(upload_to="images/users", null=True, blank=True, verbose_name="Rasm")
+    point = models.IntegerField(default=0, verbose_name="Ball")
 
     is_student = models.BooleanField(default=False, verbose_name="O'quvchi")
     is_active = models.BooleanField(default=False, verbose_name="Faol")
